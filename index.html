@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <title data-i18n="documentTitle">Privacy Policy</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+    :root {
+      --paragpah-text-size: 16px;
+
+      --list-margin-size: 8px 0;
+      --li-margin-end: 8px;
+      --li-padding-inline: 22px;
+
+      --document-text-color: #282828;
+      --document-background-color: #f4f1f1;
+    }
+
+    * {
+      font-family: "Roboto", sans-serif;
+
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+
+      color: var(--document-text-color);
+    }
+
+    body {
+      background-color: var(--document-background-color);
+    }
+
+    ul, ol {
+      margin: var(--list-margin-size);
+    }
+
+    li {
+      display: list-item;
+
+      list-style-type: disc;
+      list-style-position: inside;
+
+      padding-inline-start: var(--li-padding-inline);
+
+      &:not(:last-child) {
+        margin-block-end: var(--li-margin-end);
+      }
+    }
+    
+    p {
+      font-size: var(--paragpah-text-size);
+      margin-top: 8px;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+
+      gap: 22px;
+
+      min-height: 100dvh;
+    }
+
+    .header {
+      width: 100%;
+
+      display: flex;
+      flex-direction: row;
+
+      padding: 8px 22px;
+
+      .header__nav {
+        width: 100%;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .form-choice-label {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: normal;
+      }
+
+      .logotype {
+        width: 48px;
+        height: 48px;
+        flex: 0 0 auto;
+      }
+
+      .form-choice-lang {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+    }
+
+    .content  {
+      flex: 1;
+      padding: 22px 0;
+    }
+
+    .privacy-policy__document {
+      display: flex;
+      flex-direction: column;
+
+      padding: 14px;
+      margin: 0 14px;
+
+      border-radius: 22px;
+      background: #ede9e9;
+      box-shadow: 0 2px 12px 4px #dedede;
+    }
+
+    .policy-container {
+      display: flex;
+      flex-direction: column;
+
+      margin-top: 24px;
+      padding: 0 12px;
+
+      gap: 26px;
+    }
+
+    .dev-map-link {
+      padding: 0 12px;
+      color: #0b8fdb;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header">
+      <nav class="header__nav">
+        <img src="icon.png" alt="logo" class="logotype">
+
+        <form class="form-choice-lang">
+          <p class="form-choice-label" data-i18n="choiseLang"></p>
+          <select name="lang" id="lang-select">
+          </select>
+        </form>
+      </nav>
+    </header>
+
+    <main class="content">
+      <section class="privacy-policy__document">
+        <h1 class="privacy-policy__title" data-i18n="documentTitle"></h1>
+        
+        <article class="policy-container"></article>
+        <a href="mailto:galaxyrobotix@gmail.com" target="_blank" class="dev-map-link">Email: galaxyrobotix@gmail.com</a>
+      </section>
+    </main>
+  </div>
+
+
+  <script src="https://unpkg.com/i18next@23.10.1/i18next.min.js"></script>
+  <script src="https://unpkg.com/i18next-browser-languagedetector@7.1.0/i18nextBrowserLanguageDetector.min.js"></script>
+  <script type="module">
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('[DOMContentLoaded] Loaded');
+      // Get language select
+      const select = document.getElementById('lang-select');
+
+      // Locales Collection
+      const locales = {
+        en: {
+          label: 'English',
+          translation: {
+            choiseLang: 'Choice language:',
+            documentTitle: 'Privacy Policy',
+            privacyPolicyDocument: [
+              {
+                title: 'General Information',
+                description: 'This application is designed for offline navigation and viewing information about historical places in Tashkent.'
+              },
+              {
+                title: 'Data Collection and Usage',
+                description: 'The application does not collect, store, or share any personal data.'
+              },
+              {
+                title: 'Location Data',
+                description: 'The application may request access to your devices location solely for:',
+                list: ['displaying your current position on the map', 'assisting with navigation'],
+              },
+              {
+                title: 'Location data:',
+                list: ['is not stored', 'is not shared with third parties', 'is processed only locally on the user’s device during app usage'],
+              },
+              {
+                title: 'Internet and Data Transmission',
+                description: 'The application <b>does not use an internet connection</b> and does not transmit any data to external servers.'
+              },
+              {
+                title: 'Third-Party Services',
+                description: 'The application <b>does not use third-party analytics or advertising services.</b>'
+              },
+              {
+                title: 'Data Storage',
+                description: 'All application data (maps and reference materials) are stored locally on the user’s device.'
+              },
+              {
+                title: 'Security',
+                description: 'Since the application does not collect or transmit personal data, there is no risk of user data leakage.'
+              },
+              {
+                title: 'Changes to This Policy',
+                description: 'This Privacy Policy may be updated. The current version will always be available at this page'
+              },
+              {
+                title: 'Contact',
+                description: 'If you have any questions, you can contact the developer:'
+              }
+            ]
+          },
+        },
+        ru: {
+          label: 'Русский',
+          translation: {
+            choiseLang: 'Выберите язык:',
+            documentTitle: 'Политика конфиденциальности',
+            privacyPolicyDocument: [
+              {
+                title: 'Общие положения',
+                description: 'Приложение предназначено для офлайн-навигации и просмотра информации о исторических местах в городе Ташкент.'
+              },
+              {
+                title: 'Сбор и использование данных',
+                description: 'Приложение не собирает, не хранит и не передает персональные данные пользователей.'
+              },
+              {
+                title: 'Геолокация',
+                description: 'Приложение может запрашивать доступ к геолокации устройства исключительно для:',
+                list: ['отображения текущего местоположения пользователя на карте', 'помощи в навигации']
+              },
+              {
+                title: 'Данные о местоположении:',
+                list: ['не сохраняются', 'не передаются третьим лицам', 'используются только локально на устройстве во время работы приложения']
+              },
+              {
+                title: 'Интернет и передача данных',
+                description: 'Приложение <b>не использует интернет-соединение</b> и не осуществляет передачу данных на внешние серверы.'
+              },
+              {
+                title: 'Сторонние сервисы',
+                description: 'Приложение <b>не использует сторонние аналитические или рекламные сервисы.</b>'
+              },
+              {
+                title: 'Хранение данных',
+                description: 'Все данные приложения (карты и справочные материалы) хранятся локально на устройстве пользователя.'
+              },
+              {
+                title: 'Безопасность',
+                description: 'Поскольку приложение не собирает и не передает персональные данные, риск утечки пользовательской информации отсутствует.'
+              },
+              {
+                title: 'Изменения политики',
+                description: 'Политика конфиденциальности может обновляться. Актуальная версия всегда доступна на этой странице.'
+              },
+              {
+                title: 'Контакты',
+                description: 'Если у вас есть вопросы, вы можете связаться с разработчиком:'
+              }
+            ]
+          },
+        },
+      };
+
+      const langs = Object.keys(locales);
+
+      // build options
+      function buildLangOptions() {
+        select.innerHTML = langs
+          .map((lang) => {
+            const label = locales[lang].label;
+            return `<option value="${lang}">${label}</option>`;
+          })
+          .join('');
+      }
+
+      // Update locales
+      function updateContent() {
+        document.querySelectorAll('[data-i18n]:not([data-i18n-list])').forEach((el) => {
+          const key = el.getAttribute('data-i18n');
+
+          el.innerHTML = i18next.t(key);
+        });
+
+        const container = document.querySelector('.policy-container');
+        if (container) {
+          const data = i18next.t('privacyPolicyDocument', { returnObjects: true });
+
+          container.innerHTML = data.map(item => {
+            let listHtml = '';
+            if (Array.isArray(item.list)) {
+              listHtml = `
+                <ul>
+                  ${item.list.map(li => `<li>${li}</li>`).join('')}
+                </ul>
+              `;
+            }
+
+            return `
+              <div class="policy-content">
+                <h3>${!item.title ? '' : item.title}</h3>
+                <p>${!item.description ? '' : item.description}</p>
+                ${listHtml}
+              </div>
+            `;
+          }).join('');
+        }
+      }
+
+      function syncSelectedWithI18n() {
+        select.value = i18next.language;
+      }
+
+      // Language select listener
+      select.addEventListener('change', (e) => {
+        let lang = e.target.value;
+
+        i18next.changeLanguage(lang, () => {
+          updateContent();
+        });
+      });
+
+      // Build options
+      buildLangOptions();
+
+      // Init i18next
+      i18next.use(i18nextBrowserLanguageDetector).init({
+        debug: false,
+        detection: {
+          order: ['localStorage', 'navigator'],
+          caches: ['localStorage'],
+          lookupLocalStorage: 'documentLang',
+        },
+
+        fallbackLng: 'en',
+        resources: locales,
+        interpolation: {
+          escapeValue: false,
+        },
+      }, () => {
+        syncSelectedWithI18n();
+        updateContent();
+      });
+
+    });
+  </script>
+</body>
+</html>
